@@ -16,11 +16,22 @@ open class Monster {
 
   var name: String
   var town: Town?
-  var strength: Double = 111
+  var strength: Double
   var numAttacks: Int = 0
-  
-  init(name: String) {
+
+  init(name: String, town: Town?, strength: Double = 111) {
     self.name = name
+    self.town = town
+    self.strength = strength
+    print("\(name) monster is alive!")
+  }
+
+  convenience init(name: String) {
+    self.init(name: name, town: nil)
+  }
+
+  deinit {
+    print("\(name) monster has disintegrated")
   }
 
   func terrorizeTown() {

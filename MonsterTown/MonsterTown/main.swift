@@ -8,10 +8,13 @@
 
 import Foundation
 
-var asheville = Town(name: "Asheville")
-asheville.printDescription()
-asheville.changePopulation(by: -313)
-asheville.printDescription()
+let nopeTown = Town(name: "nope", population: 0)
+print("nopeTown: \(nopeTown)")
+
+var asheville = Town(name: "Asheville", population: 5_422)
+asheville?.printDescription()
+asheville?.changePopulation(by: -313)
+asheville?.printDescription()
 
 let nosferatu = Monster(name: "nosferatu")
 nosferatu.terrorizeTown()
@@ -19,10 +22,10 @@ nosferatu.town = asheville
 nosferatu.terrorizeTown()
 nosferatu.town?.printDescription()
 
-let fred = Zombie(name: "fredzo")
-fred.town = asheville
+let fred = Zombie(name: "fredzo", town: asheville)
 fred.terrorizeTown()
 fred.terrorizeTown()
 fred.terrorizeTown()
 
-
+var vlad: Monster? = Monster(name: "vlad")
+vlad = nil

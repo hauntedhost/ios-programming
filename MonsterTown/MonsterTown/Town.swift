@@ -10,7 +10,8 @@ import Foundation
 
 struct Town {
   var name: String
-  var population = 5_422 {
+  var region: String
+  var population: Int {
     didSet(oldPopulation) {
       if oldPopulation > population {
         print("Oh no! \(name) lost \(oldPopulation - population) citizens")
@@ -51,8 +52,19 @@ struct Town {
     }
   }
 
-  init(name: String) {
+  init?(name: String, population: Int) {
+    self.init(name: name, population: population, region: "N/A")
+  }
+
+  init?(name: String, population: Int = 5_422, region: String) {
+    guard population > 0 else {
+      print("population must be at least one")
+      return nil
+    }
+
     self.name = name
+    self.population = population
+    self.region = region
   }
   
   mutating func changePopulation(by amount: Int) {
@@ -61,9 +73,9 @@ struct Town {
   
   func printDescription() {
     print([
-      "\(asheville.name) is a \(townSize) sized town",
-      "with a population of \(asheville.population)",
-      "and \(asheville.numberOfStopLights) stoplights"
+      "\(name) is a \(townSize) sized town",
+      "with a population of \(population)",
+      "and \(numberOfStopLights) stoplights"
     ].joined(separator: " "))
   }
 }
