@@ -275,11 +275,35 @@ struct Body {
   var weightInKilos: Double? = 0
 }
 
-class Person {
-  
+// binary tree
+
+// generic pipeline operator ftw
+infix operator |> : MultiplicationPrecedence
+
+public func |> <Input, Output> (left: Input, right: (Input) -> Output) -> Output {
+  return right(left)
 }
 
-class Tree {
+// tree helpers
+private func tail(_ trees: [Tree]) -> [Tree] {
+  return Array(trees.dropFirst())
+}
+
+private func maybeAppend(_ trees: [Tree], _ tree: Tree?) -> [Tree] {
+  if let tree = tree {
+    return trees + [tree]
+  } else {
+    return trees
+  }
+}
+
+// manually curried maybeAppend for use in pipeline
+private func maybeAppend(_ tree: Tree?) -> ([Tree]) -> [Tree] {
+  return { trees in return maybeAppend(trees, tree) }
+}
+
+// tree class implementation (structs cannot be self-referential)
+public final class Tree {
   var value: Int
   var left: Tree?
   var right: Tree?
@@ -288,6 +312,33 @@ class Tree {
     self.value = value
     self.left = left
     self.right = right
+  }
+}
+
+// public breadth-first search
+// delegates to private implementation
+public func bfsContains(num: Int, tree: Tree) -> Bool {
+  return bfsContains(num: num, trees: [tree])
+}
+
+// private bread-first search iterates through array
+private func bfsContains(num: Int, trees: [Tree]) -> Bool {
+  guard let first = trees.first else {
+    print("not found")
+    return false
+  }
+
+  print("handling node: \(first.value)")
+
+  if first.value == num {
+    print("found \(num)")
+    return true
+  } else {
+    let rest =
+      tail(trees)
+      |> maybeAppend(first.left)
+      |> maybeAppend(first.right)
+    return bfsContains(num: num, trees: rest)
   }
 }
 
@@ -306,33 +357,25 @@ let treeC = Tree(
   right: Tree(value: 30)
 )
 
-func treeTail(_ trees: [Tree]) -> [Tree] {
-  return Array(trees.dropFirst())
-}
-
-func bfsContains(num: Int, tree: Tree) -> Bool {
-  return bfsContains(num: num, trees: [tree])
-}
-
-func bfsContains(num: Int, trees: [Tree]) -> Bool {
-  if let first = trees.first {
-    print("handling node: \(first.value)")
-
-    guard first.value != num else {
-      print("found \(num)")
-      return true
-    }
-
-    var rest = treeTail(trees)
-    if let left = first.left   { rest.append(left)  }
-    if let right = first.right { rest.append(right) }
-    return bfsContains(num: num, trees: rest)
-  } else {
-    print("not found")
-    return false
-  }
-}
-
 let findNum = 10
-let foundNum = bfsContains(num: findNum, tree: treeC)
-print("number \(findNum) found? \(foundNum)")
+let didFindNum = bfsContains(num: findNum, tree: treeC)
+print("number \(findNum) found? \(didFindNum)")
+
+// pipelines
+func add(_ a: Int, _ b: Int) -> Int {
+  return a + b
+}
+
+// manually curried add func
+func add(_ a: Int) -> (Int) -> Int {
+  return { b in return a + b }
+}
+
+let total =
+  5
+  |> add(6)
+  |> add(10)
+  |> add(12)
+
+print("total: \(total)")
+
