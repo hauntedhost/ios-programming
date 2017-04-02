@@ -1,0 +1,273 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		142E5C731E91709B00422910 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142E5C721E91709B00422910 /* main.swift */; };
+		142E5C7A1E91755B00422910 /* GreekGod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142E5C791E91755B00422910 /* GreekGod.swift */; };
+		142E5C7C1E91766E00422910 /* MutableStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142E5C7B1E91766E00422910 /* MutableStruct.swift */; };
+		142E5C7E1E9176DD00422910 /* ImmutableStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142E5C7D1E9176DD00422910 /* ImmutableStruct.swift */; };
+		142E5C801E91796600422910 /* Pantheon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142E5C7F1E91796600422910 /* Pantheon.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		142E5C6D1E91709B00422910 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		142E5C6F1E91709B00422910 /* Mythology */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Mythology; sourceTree = BUILT_PRODUCTS_DIR; };
+		142E5C721E91709B00422910 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		142E5C791E91755B00422910 /* GreekGod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreekGod.swift; sourceTree = "<group>"; };
+		142E5C7B1E91766E00422910 /* MutableStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MutableStruct.swift; sourceTree = "<group>"; };
+		142E5C7D1E9176DD00422910 /* ImmutableStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImmutableStruct.swift; sourceTree = "<group>"; };
+		142E5C7F1E91796600422910 /* Pantheon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pantheon.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		142E5C6C1E91709B00422910 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		142E5C661E91709B00422910 = {
+			isa = PBXGroup;
+			children = (
+				142E5C711E91709B00422910 /* Mythology */,
+				142E5C701E91709B00422910 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		142E5C701E91709B00422910 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				142E5C6F1E91709B00422910 /* Mythology */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		142E5C711E91709B00422910 /* Mythology */ = {
+			isa = PBXGroup;
+			children = (
+				142E5C721E91709B00422910 /* main.swift */,
+				142E5C7F1E91796600422910 /* Pantheon.swift */,
+				142E5C7D1E9176DD00422910 /* ImmutableStruct.swift */,
+				142E5C7B1E91766E00422910 /* MutableStruct.swift */,
+				142E5C791E91755B00422910 /* GreekGod.swift */,
+			);
+			path = Mythology;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		142E5C6E1E91709B00422910 /* Mythology */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 142E5C761E91709B00422910 /* Build configuration list for PBXNativeTarget "Mythology" */;
+			buildPhases = (
+				142E5C6B1E91709B00422910 /* Sources */,
+				142E5C6C1E91709B00422910 /* Frameworks */,
+				142E5C6D1E91709B00422910 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Mythology;
+			productName = Mythology;
+			productReference = 142E5C6F1E91709B00422910 /* Mythology */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		142E5C671E91709B00422910 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = sean;
+				TargetAttributes = {
+					142E5C6E1E91709B00422910 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 142E5C6A1E91709B00422910 /* Build configuration list for PBXProject "Mythology" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 142E5C661E91709B00422910;
+			productRefGroup = 142E5C701E91709B00422910 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				142E5C6E1E91709B00422910 /* Mythology */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		142E5C6B1E91709B00422910 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				142E5C7C1E91766E00422910 /* MutableStruct.swift in Sources */,
+				142E5C7E1E9176DD00422910 /* ImmutableStruct.swift in Sources */,
+				142E5C731E91709B00422910 /* main.swift in Sources */,
+				142E5C7A1E91755B00422910 /* GreekGod.swift in Sources */,
+				142E5C801E91796600422910 /* Pantheon.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		142E5C741E91709B00422910 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		142E5C751E91709B00422910 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		142E5C771E91709B00422910 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		142E5C781E91709B00422910 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		142E5C6A1E91709B00422910 /* Build configuration list for PBXProject "Mythology" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				142E5C741E91709B00422910 /* Debug */,
+				142E5C751E91709B00422910 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		142E5C761E91709B00422910 /* Build configuration list for PBXNativeTarget "Mythology" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				142E5C771E91709B00422910 /* Debug */,
+				142E5C781E91709B00422910 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 142E5C671E91709B00422910 /* Project object */;
+}
