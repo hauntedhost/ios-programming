@@ -306,7 +306,7 @@ let treeC = Tree(
   right: Tree(value: 30)
 )
 
-func treeTail(_ trees: [Tree?]) -> [Tree?] {
+func treeTail(_ trees: [Tree]) -> [Tree] {
   return Array(trees.dropFirst())
 }
 
@@ -314,22 +314,25 @@ func bfsContains(num: Int, tree: Tree) -> Bool {
   return bfsContains(num: num, trees: [tree])
 }
 
-func bfsContains(num: Int, trees: [Tree?]) -> Bool {
+func bfsContains(num: Int, trees: [Tree]) -> Bool {
   if let first = trees.first {
-    // print("handling node: \(value)")
-    // let value = first?.value
-    if let value = first?.value { print("handling node: \(value)") }
-    if first?.value == num {
+    print("handling node: \(first.value)")
+
+    guard first.value != num else {
+      print("found \(num)")
       return true
-    } else {
-      let rest = [first?.left, first?.right] + treeTail(trees)
-      return bfsContains(num: num, trees: rest)
     }
+
+    var rest = treeTail(trees)
+    if let left = first.left   { rest.append(left)  }
+    if let right = first.right { rest.append(right) }
+    return bfsContains(num: num, trees: rest)
   } else {
+    print("not found")
     return false
   }
 }
 
-let findNum = 22
-let hasNum = bfsContains(num: findNum, tree: treeC)
-print("hasNum \(findNum): \(hasNum)")
+let findNum = 10
+let foundNum = bfsContains(num: findNum, tree: treeC)
+print("number \(findNum) found? \(foundNum)")
