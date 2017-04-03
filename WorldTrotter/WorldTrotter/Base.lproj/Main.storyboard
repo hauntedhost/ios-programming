@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WorldTrotter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;Degrees F&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0cS-3m-rgB">
+                                <rect key="frame" x="95" y="40" width="185" height="32"/>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;Degrees C&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vwI-pa-TQ5">
+                                <rect key="frame" x="95" y="133" width="185" height="32"/>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="=" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qKR-tc-wOR">
+                                <rect key="frame" x="176" y="82" width="22" height="41"/>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96078431372549022" green="0.95686274509803915" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="qKR-tc-wOR" firstAttribute="centerX" secondItem="0cS-3m-rgB" secondAttribute="centerX" id="Je7-0B-3Ii"/>
+                            <constraint firstItem="vwI-pa-TQ5" firstAttribute="top" secondItem="qKR-tc-wOR" secondAttribute="bottom" constant="10" id="X8q-9M-m7t"/>
+                            <constraint firstItem="0cS-3m-rgB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="XmA-2n-JH5"/>
+                            <constraint firstItem="qKR-tc-wOR" firstAttribute="top" secondItem="0cS-3m-rgB" secondAttribute="bottom" constant="10" id="aNH-VE-ssc"/>
+                            <constraint firstItem="vwI-pa-TQ5" firstAttribute="centerX" secondItem="0cS-3m-rgB" secondAttribute="centerX" id="bf3-la-5d7"/>
+                            <constraint firstItem="0cS-3m-rgB" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="vgu-aW-Hp9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="degreesLabelC" destination="vwI-pa-TQ5" id="LzO-iG-lxu"/>
+                        <outlet property="degreesLabelF" destination="0cS-3m-rgB" id="HGF-jB-Trp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="140" y="137.18140929535232"/>
+        </scene>
+    </scenes>
+</document>
