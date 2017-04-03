@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Quiz2" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;Question Text&gt;" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AmL-p3-BPN">
+                                <rect key="frame" x="79.5" y="44" width="216.5" height="27.5"/>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TXT-1k-QcV">
+                                <rect key="frame" x="121" y="244" width="133" height="35"/>
+                                <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="20"/>
+                                <state key="normal" title="Show Answer"/>
+                                <connections>
+                                    <action selector="showAnswer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="02N-O4-dva"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z75-fV-yYE">
+                                <rect key="frame" x="109" y="285" width="157" height="35"/>
+                                <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="20"/>
+                                <state key="normal" title="Next Question"/>
+                                <connections>
+                                    <action selector="showNextQuestion:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Bh0-T1-1FP"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;Answer Text&gt;" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TX1-6H-DXd">
+                                <rect key="frame" x="93.5" y="144" width="188" height="28"/>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="AmL-p3-BPN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="97s-Ze-Bb5"/>
+                            <constraint firstItem="TX1-6H-DXd" firstAttribute="centerX" secondItem="AmL-p3-BPN" secondAttribute="centerX" id="C5a-Kp-RCt"/>
+                            <constraint firstItem="TX1-6H-DXd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="Cue-v9-oVB"/>
+                            <constraint firstItem="TXT-1k-QcV" firstAttribute="centerX" secondItem="AmL-p3-BPN" secondAttribute="centerX" id="HR8-O4-egW"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="AmL-p3-BPN" secondAttribute="trailing" constant="20" id="IcP-ZH-lNm"/>
+                            <constraint firstItem="Z75-fV-yYE" firstAttribute="top" secondItem="TXT-1k-QcV" secondAttribute="bottom" constant="6" id="QbK-FG-YAg"/>
+                            <constraint firstItem="AmL-p3-BPN" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="24" id="UiD-gg-h93"/>
+                            <constraint firstItem="AmL-p3-BPN" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="24" id="XNd-Gl-jbY"/>
+                            <constraint firstItem="AmL-p3-BPN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="eGw-Ob-u66"/>
+                            <constraint firstItem="AmL-p3-BPN" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="fBi-5F-w13"/>
+                            <constraint firstItem="Z75-fV-yYE" firstAttribute="centerX" secondItem="AmL-p3-BPN" secondAttribute="centerX" id="hyH-Bz-flJ"/>
+                            <constraint firstItem="TXT-1k-QcV" firstAttribute="top" secondItem="TX1-6H-DXd" secondAttribute="top" constant="100" id="j1W-ay-nU2"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="TX1-6H-DXd" secondAttribute="trailing" constant="20" id="oEi-9r-Dw2"/>
+                            <constraint firstItem="TX1-6H-DXd" firstAttribute="top" secondItem="AmL-p3-BPN" secondAttribute="top" constant="100" id="uqC-Zh-6ve"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="answerLabel" destination="TX1-6H-DXd" id="EOJ-dS-e99"/>
+                        <outlet property="questionLabel" destination="AmL-p3-BPN" id="in6-k3-lsq"/>
+                        <outlet property="showAnswerButton" destination="TXT-1k-QcV" id="1hR-NA-h3a"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="137.18140929535232"/>
+        </scene>
+    </scenes>
+</document>
