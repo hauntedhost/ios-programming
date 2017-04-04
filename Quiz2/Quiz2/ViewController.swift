@@ -33,7 +33,13 @@ class ViewController: UIViewController {
   ]
   
   func refreshText() {
+    questionLabel.alpha = 0
     questionLabel.text = questions[currentQuestionIndex].text
+
+    UIView.animate(withDuration: 0.5, animations: {
+      self.questionLabel.alpha = 1
+    })
+
     answerLabel.text = blankAnswerText
     showAnswerButton.isEnabled = true
   }
@@ -47,7 +53,13 @@ class ViewController: UIViewController {
   }
 
   @IBAction func showAnswer(_ sender: UIButton) {
-    answerLabel?.text = questions[currentQuestionIndex].answer
+    answerLabel.alpha = 0
+    answerLabel.text = questions[currentQuestionIndex].answer
+
+    UIView.animate(withDuration: 0.5, animations: {
+      self.answerLabel.alpha = 1
+    })
+
     showAnswerButton.isEnabled = false
   }
 
