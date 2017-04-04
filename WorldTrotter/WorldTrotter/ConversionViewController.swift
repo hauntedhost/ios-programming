@@ -58,11 +58,8 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
     }
   }
 
-  func isNotSecondPeriod(
-    textField: UITextField,
-    replacementString: String?
-  ) -> Bool {
-    if hasPeriod(textField.text) && hasPeriod(replacementString) {
+  func isNotSecondPeriod(_ str1: String?, _ str2: String?) -> Bool {
+    if hasPeriod(str1) && hasPeriod(str2) {
       return false
     } else {
       return true
@@ -76,6 +73,18 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
     return string.rangeOfCharacter(from: numericCharacterSet.inverted) == nil
   }
 
+  func doesNotInvalidateLength(_ text: String?, _ string: String?) -> Bool {
+    guard let string = string, !string.isEmpty else {
+      return true
+    }
+
+    if let text = text {
+      return text.characters.count < 12
+    } else {
+      return true
+    }
+  }
+
   // delegate callback to validate input text
   func textField(
     _ textField: UITextField,
@@ -84,7 +93,8 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
   ) -> Bool {
     return
       isNumeric(string) &&
-      isNotSecondPeriod(textField: textField, replacementString: string)
+      doesNotInvalidateLength(textField.text, string) &&
+      isNotSecondPeriod(textField.text, string)
   }
 
   func updateCelciusLabel() {
