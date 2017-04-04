@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ConversionViewController: UIViewController {
+class ConversionViewController: UIViewController, UITextFieldDelegate {
   @IBOutlet var celciusLabel: UILabel!
   @IBOutlet var fahrenheightTextField: UITextField!
 
@@ -38,8 +38,6 @@ class ConversionViewController: UIViewController {
     }
   }
 
-  let blankCelciusLabelText = "Degrees °C"
-
   let numberFormatter: NumberFormatter = {
     let nf = NumberFormatter()
     nf.numberStyle = .decimal
@@ -52,11 +50,48 @@ class ConversionViewController: UIViewController {
     return numberFormatter.string(from: NSNumber(value: measurement.value))
   }
 
+  func hasPeriod(_ string: String?) -> Bool {
+    if let string = string {
+      return string.range(of: ".") != nil
+    } else {
+      return false
+    }
+  }
+
+  func isNotSecondPeriod(
+    textField: UITextField,
+    replacementString: String?
+  ) -> Bool {
+    if hasPeriod(textField.text) && hasPeriod(replacementString) {
+      return false
+    } else {
+      return true
+    }
+  }
+
+  // need to test that string is decimal or period
+  let numericCharacterSet = CharacterSet(charactersIn: "0123456789.")
+
+  func isNumeric(_ string: String) -> Bool {
+    return string.rangeOfCharacter(from: numericCharacterSet.inverted) == nil
+  }
+
+  // delegate callback to validate input text
+  func textField(
+    _ textField: UITextField,
+    shouldChangeCharactersIn range: NSRange,
+    replacementString string: String
+  ) -> Bool {
+    return
+      isNumeric(string) &&
+      isNotSecondPeriod(textField: textField, replacementString: string)
+  }
+
   func updateCelciusLabel() {
     if let celcius = celciusValue, let labelText = formattedLabel(celcius) {
-      celciusLabel.text = labelText
+      celciusLabel.text = labelText + "°C"
     } else {
-      celciusLabel.text = blankCelciusLabelText
+      celciusLabel.text = "Degrees°C"
     }
   }
 
