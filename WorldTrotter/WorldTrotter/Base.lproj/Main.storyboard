@@ -79,7 +79,7 @@
         <!--Map-->
         <scene sceneID="fEC-Uu-D9R">
             <objects>
-                <viewController id="DuK-hU-Ts4" sceneMemberID="viewController">
+                <viewController id="DuK-hU-Ts4" customClass="MapViewController" customModule="WorldTrotter" customModuleProvider="target" sceneMemberID="viewController">
                     <mapView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="t8u-nz-opO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -96,6 +96,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Yz6-3Z-dkn" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="cE5-zS-kGJ">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
