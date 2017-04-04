@@ -121,6 +121,35 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
     }
   }
 
+  func currentHour() -> Int {
+    let date = Date()
+    let dateFormatter = DateFormatter()
+    dateFormatter.locale = Locale.current
+    dateFormatter.dateFormat = "H"
+
+    let hour = dateFormatter.string(from: date)
+    if let hour = Int(hour) {
+      return hour
+    } else {
+      return 12
+    }
+  }
+
+  // adjust background color based on current 24-hour
+  override func viewWillAppear(_ animated: Bool) {
+    print("currentHour(): \(currentHour())")
+
+    let brightness = Double(currentHour()) / 24.0
+    let backgroundColor = UIColor(
+      hue: 0.5,
+      saturation: 0.5,
+      brightness: CGFloat(brightness),
+      alpha: 1.0
+    )
+
+    view.backgroundColor = backgroundColor
+  }
+
   override func viewDidLoad() {
     super.viewDidLoad()
 
