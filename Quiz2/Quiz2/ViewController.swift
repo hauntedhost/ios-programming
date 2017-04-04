@@ -31,45 +31,62 @@ class ViewController: UIViewController {
       answer: "three, am i like a little baby?"
     ),
   ]
-  
-  func refreshText() {
-    questionLabel.alpha = 0
-    questionLabel.text = questions[currentQuestionIndex].text
 
-    UIView.animate(withDuration: 0.5, animations: {
-      self.questionLabel.alpha = 1
-    })
-
-    answerLabel.text = blankAnswerText
-    showAnswerButton.isEnabled = true
+  @IBAction func showAnswer(_ sender: UIButton) {
+    UIView.animate(
+      delay: 0,
+      withDuration: 0.05,
+      animations: {
+        self.answerLabel.alpha = 0
+      },
+      completion: { _ in
+        self.showAnswerButton.isEnabled = false
+        self.answerLabel.text =
+          self.questions[self.currentQuestionIndex].answer
+        UIView.animate(
+          delay: 0,
+          withDuration: 0.25,
+          animations: { self.answerLabel.alpha = 1 }
+        )
+      }
+    )
   }
-  
+
   @IBAction func showNextQuestion(_ sender: UIButton) {
     currentQuestionIndex += 1
     if currentQuestionIndex >= questions.count {
       currentQuestionIndex = 0
     }
-    refreshText()
-  }
-
-  @IBAction func showAnswer(_ sender: UIButton) {
-    answerLabel.alpha = 0
-    answerLabel.text = questions[currentQuestionIndex].answer
-
-    UIView.animate(withDuration: 0.5, animations: {
-      self.answerLabel.alpha = 1
-    })
-
-    showAnswerButton.isEnabled = false
+    showCurrentQuestion()
   }
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    refreshText()
+    showCurrentQuestion()
   }
 
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
   }
-}
 
+  func showCurrentQuestion() {
+    answerLabel.text = blankAnswerText
+    UIView.animate(
+      delay: 0,
+      withDuration: 0.05,
+      animations: {
+        self.questionLabel.alpha = 0
+      },
+      completion: { _ in
+        self.showAnswerButton.isEnabled = true
+        self.questionLabel.text =
+          self.questions[self.currentQuestionIndex].text
+        UIView.animate(
+          delay: 0,
+          withDuration: 0.25,
+          animations: { self.questionLabel.alpha = 1 }
+        )
+      }
+    )
+  }
+}
