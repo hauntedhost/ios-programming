@@ -58,11 +58,23 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
     }
   }
 
-  func hasOneDecimalMarkMax(
-    _ maybeString1: String?,
-    _ maybeString2: String?
+  func doesNotAddSecondDecimalMark(
+    _ maybeCurrentText: String?,
+    _ newText: String
   ) -> Bool {
-    return [maybeString1, maybeString2].filter { hasPeriod($0) }.count <= 1
+    return [maybeCurrentText, newText].filter { hasPeriod($0) }.count <= 1
+  }
+
+  func doesNotAddThirdDecimalPlace(
+    _ maybeCurrentText: String?,
+    _ newText: String
+    ) -> Bool {
+    if let currentText = maybeCurrentText, hasPeriod(currentText) {
+      let leftRight = currentText.components(separatedBy: ".")
+      return (leftRight[1] + newText).characters.count <= 2
+    } else {
+      return true
+    }
   }
 
   // need to test that string is decimal or period
@@ -73,15 +85,16 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
   }
 
   func doesNotInvalidateLength(
-    _ maybeText: String?,
-    _ maybeString: String?
+    _ maybeCurrentText: String?,
+    _ newText: String
   ) -> Bool {
-    guard let string = maybeString, !string.isEmpty else {
+    // if new text is empty, might be delete key, let it pass
+    guard !newText.isEmpty else {
       return true
     }
 
-    if let text = maybeText {
-      return text.characters.count < 12
+    if let currentText = maybeCurrentText {
+      return currentText.characters.count < 12
     } else {
       return true
     }
@@ -96,7 +109,8 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
     return
       isNumeric(string) &&
       doesNotInvalidateLength(textField.text, string) &&
-      hasOneDecimalMarkMax(textField.text, string)
+      doesNotAddThirdDecimalPlace(textField.text, string) &&
+      doesNotAddSecondDecimalMark(textField.text, string)
   }
 
   func updateCelciusLabel() {
