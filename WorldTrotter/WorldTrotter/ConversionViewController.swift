@@ -50,6 +50,8 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
     return numberFormatter.string(from: NSNumber(value: measurement.value))
   }
 
+  // FIXME: change to hasDecimalMark
+  // use Locale to get current locale decimal symbol
   func hasPeriod(_ maybeString: String?) -> Bool {
     if let string = maybeString {
       return string.range(of: ".") != nil
@@ -58,6 +60,7 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
     }
   }
 
+  // FIXME: use hasDecimalMark function
   func doesNotAddSecondDecimalMark(
     _ maybeCurrentText: String?,
     _ newText: String

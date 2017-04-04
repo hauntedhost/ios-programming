@@ -13,19 +13,38 @@ class MapViewController: UIViewController {
   var mapView: MKMapView!
 
   override func loadView() {
+    view = createMapView()
+    addSegmentedControl()
+  }
+
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    print("MapViewController loaded")
+  }
+
+  func createMapView() -> MKMapView {
     // add map
     mapView = MKMapView()
-    view = mapView
+    return mapView
+  }
 
-    // add segmented control
+  func addSegmentedControl() {
+    // create and configure segmented control
     let segmentedControl = UISegmentedControl(items: [
       "Standard",
       "Hybrid",
       "Satellite",
     ])
+
     segmentedControl.selectedSegmentIndex = 0
     segmentedControl.translatesAutoresizingMaskIntoConstraints = false
     segmentedControl.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+    segmentedControl.addTarget(
+      self,
+      action: #selector(MapViewController.mapTypeChanged(_:)),
+      for: .valueChanged)
+
+    // add to view
     view.addSubview(segmentedControl)
 
     // add control constraints
@@ -42,9 +61,16 @@ class MapViewController: UIViewController {
     trailingConstraint.isActive = true
   }
 
-  override func viewDidLoad() {
-    super.viewDidLoad()
-
-    print("MapViewController loaded")
+  func mapTypeChanged(_ segControl: UISegmentedControl) {
+    switch segControl.selectedSegmentIndex {
+    case 0:
+      mapView.mapType = .standard
+    case 1:
+      mapView.mapType = .hybrid
+    case 2:
+      mapView.mapType = .satellite
+    default:
+      break
+    }
   }
 }
