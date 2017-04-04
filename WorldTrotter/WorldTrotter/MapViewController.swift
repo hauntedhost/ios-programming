@@ -25,6 +25,20 @@ class MapViewController: UIViewController {
   func createMapView() -> MKMapView {
     // add map
     mapView = MKMapView()
+
+    // TODO: set user location
+    let userLocation = mapView.userLocation
+    print("userLocation: \(userLocation.coordinate)")
+
+    // let span = MKCoordinateSpanMake(20.75, 20.75)
+    // let region = MKCoordinateRegion(
+    //  center: userLocation.coordinate,
+    //  span: span)
+    //
+    // mapView.setRegion(
+    //   region,
+    //  animated: true)
+
     return mapView
   }
 
