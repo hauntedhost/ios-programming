@@ -39,3 +39,11 @@ segmentedControl.addTarget(
   for: .valueChanged
 )
 ```
+
+- animations
+  - bring in quartzCore
+  - ca layer
+  - ca basic animation
+  - ca keyframe animation
+  - ca grouped animation
+  - https://www.cocoacontrols.com

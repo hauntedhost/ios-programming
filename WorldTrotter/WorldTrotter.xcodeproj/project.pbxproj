@@ -111,7 +111,7 @@
 				TargetAttributes = {
 					142E5D341E92F26100422910 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = YHDCF75KZM;
+						DevelopmentTeam = 6T24D3G4RQ;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -277,7 +277,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = YHDCF75KZM;
+				DEVELOPMENT_TEAM = 6T24D3G4RQ;
 				INFOPLIST_FILE = WorldTrotter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = sean.WorldTrotter;
@@ -290,7 +290,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = YHDCF75KZM;
+				DEVELOPMENT_TEAM = 6T24D3G4RQ;
 				INFOPLIST_FILE = WorldTrotter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = sean.WorldTrotter;
