@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Conversion View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WorldTrotter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ConversionViewController" customModule="WorldTrotter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -21,41 +21,56 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;Degrees F&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0cS-3m-rgB">
-                                <rect key="frame" x="95" y="40" width="185" height="32"/>
-                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="28"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;Degrees C&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vwI-pa-TQ5">
-                                <rect key="frame" x="95" y="133" width="185" height="32"/>
-                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="28"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="=" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qKR-tc-wOR">
-                                <rect key="frame" x="176" y="82" width="22" height="41"/>
-                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="36"/>
+                                <rect key="frame" x="177.5" y="77" width="19.5" height="36.5"/>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Degrees °F" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f4r-R5-iNQ">
+                                <rect key="frame" x="62.5" y="30" width="250" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="aC5-cH-Wpz"/>
+                                </constraints>
+                                <color key="textColor" red="0.96834290027618408" green="0.57333146227492016" blue="0.14221741783499861" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="32"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad"/>
+                                <connections>
+                                    <action selector="fahrenheightFieldEditingChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="Iov-KO-Oqd"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;Degrees C&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vwI-pa-TQ5">
+                                <rect key="frame" x="95" y="123.5" width="185" height="32"/>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.96078431372549022" green="0.95686274509803915" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="qKR-tc-wOR" firstAttribute="centerX" secondItem="0cS-3m-rgB" secondAttribute="centerX" id="Je7-0B-3Ii"/>
-                            <constraint firstItem="vwI-pa-TQ5" firstAttribute="top" secondItem="qKR-tc-wOR" secondAttribute="bottom" constant="10" id="X8q-9M-m7t"/>
-                            <constraint firstItem="0cS-3m-rgB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="XmA-2n-JH5"/>
-                            <constraint firstItem="qKR-tc-wOR" firstAttribute="top" secondItem="0cS-3m-rgB" secondAttribute="bottom" constant="10" id="aNH-VE-ssc"/>
-                            <constraint firstItem="vwI-pa-TQ5" firstAttribute="centerX" secondItem="0cS-3m-rgB" secondAttribute="centerX" id="bf3-la-5d7"/>
-                            <constraint firstItem="0cS-3m-rgB" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="vgu-aW-Hp9"/>
+                            <constraint firstItem="vwI-pa-TQ5" firstAttribute="centerX" secondItem="f4r-R5-iNQ" secondAttribute="centerX" id="8r8-fi-XNi"/>
+                            <constraint firstItem="qKR-tc-wOR" firstAttribute="centerX" secondItem="f4r-R5-iNQ" secondAttribute="centerX" id="9ie-mp-zAI"/>
+                            <constraint firstItem="vwI-pa-TQ5" firstAttribute="top" secondItem="qKR-tc-wOR" secondAttribute="bottom" constant="10" id="Bis-bB-ply"/>
+                            <constraint firstItem="f4r-R5-iNQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="c2V-UH-ixf"/>
+                            <constraint firstItem="f4r-R5-iNQ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="kV1-Yj-tm4"/>
+                            <constraint firstItem="qKR-tc-wOR" firstAttribute="top" secondItem="f4r-R5-iNQ" secondAttribute="bottom" constant="10" id="vd5-5j-YD9"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="UvT-Il-aB8" appends="YES" id="Zlb-MA-BdP"/>
+                        </connections>
                     </view>
                     <connections>
-                        <outlet property="degreesLabelC" destination="vwI-pa-TQ5" id="LzO-iG-lxu"/>
-                        <outlet property="degreesLabelF" destination="0cS-3m-rgB" id="HGF-jB-Trp"/>
+                        <outlet property="celciusLabel" destination="vwI-pa-TQ5" id="iBh-J8-SQt"/>
+                        <outlet property="fahrenheightTextField" destination="f4r-R5-iNQ" id="Llm-TK-UHU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="UvT-Il-aB8">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="BYZ-38-t0r" id="VeQ-GJ-OJm"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="140" y="137.18140929535232"/>
         </scene>
