@@ -42,7 +42,7 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
     let nf = NumberFormatter()
     nf.numberStyle = .decimal
     nf.minimumFractionDigits = 0
-    nf.maximumFractionDigits = 1
+    nf.maximumFractionDigits = 2
     return nf
   }()
 
