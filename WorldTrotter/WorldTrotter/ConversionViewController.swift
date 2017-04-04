@@ -14,9 +14,9 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
 
   @IBAction func fahrenheightFieldEditingChanged(_ textField: UITextField) {
     if let text = textField.text, let value = Double(text) {
-      fahrenheightValue = Measurement(value: value, unit: .fahrenheit)
+      maybeFahrenheightValue = Measurement(value: value, unit: .fahrenheit)
     } else {
-      fahrenheightValue = nil
+      maybeFahrenheightValue = nil
     }
   }
 
@@ -24,14 +24,14 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
     fahrenheightTextField.resignFirstResponder()
   }
 
-  var fahrenheightValue: Measurement<UnitTemperature>? {
+  var maybeFahrenheightValue: Measurement<UnitTemperature>? {
     didSet {
       updateCelciusLabel()
     }
   }
 
   var celciusValue: Measurement<UnitTemperature>? {
-    if let fahrenheightValue = fahrenheightValue {
+    if let fahrenheightValue = maybeFahrenheightValue {
       return fahrenheightValue.converted(to: .celsius)
     } else {
       return nil
@@ -50,20 +50,19 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
     return numberFormatter.string(from: NSNumber(value: measurement.value))
   }
 
-  func hasPeriod(_ string: String?) -> Bool {
-    if let string = string {
+  func hasPeriod(_ maybeString: String?) -> Bool {
+    if let string = maybeString {
       return string.range(of: ".") != nil
     } else {
       return false
     }
   }
 
-  func isNotSecondPeriod(_ str1: String?, _ str2: String?) -> Bool {
-    if hasPeriod(str1) && hasPeriod(str2) {
-      return false
-    } else {
-      return true
-    }
+  func hasOneDecimalMarkMax(
+    _ maybeString1: String?,
+    _ maybeString2: String?
+  ) -> Bool {
+    return [maybeString1, maybeString2].filter { hasPeriod($0) }.count <= 1
   }
 
   // need to test that string is decimal or period
@@ -73,12 +72,15 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
     return string.rangeOfCharacter(from: numericCharacterSet.inverted) == nil
   }
 
-  func doesNotInvalidateLength(_ text: String?, _ string: String?) -> Bool {
-    guard let string = string, !string.isEmpty else {
+  func doesNotInvalidateLength(
+    _ maybeText: String?,
+    _ maybeString: String?
+  ) -> Bool {
+    guard let string = maybeString, !string.isEmpty else {
       return true
     }
 
-    if let text = text {
+    if let text = maybeText {
       return text.characters.count < 12
     } else {
       return true
@@ -94,7 +96,7 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
     return
       isNumeric(string) &&
       doesNotInvalidateLength(textField.text, string) &&
-      isNotSecondPeriod(textField.text, string)
+      hasOneDecimalMarkMax(textField.text, string)
   }
 
   func updateCelciusLabel() {
