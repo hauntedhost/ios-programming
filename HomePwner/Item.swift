@@ -28,18 +28,26 @@ class Item: NSObject {
       let randomAdjective = Helpers.getRandomValue([
         "Sick",
         "Tragic",
+        "Doom",
+        "Delicious",
         "Fire 🔥",
         "Goth",
+        "Psychedelic",
         "Dank",
       ])!
 
       let randomThingName = Helpers.getRandomValue([
         "Dagger",
-        "Espresso Beans",
+        "Microcomputer",
+        "Espresso",
+        "Album",
+        "Mango",
+        "Curry",
+        "Whiskey",
         "Kitten",
         "Mushroom 🍄",
         "Lazer",
-        "Album",
+        "Doggo",
       ])!
 
       let randomName = "\(randomAdjective) \(randomThingName)"

@@ -12,7 +12,7 @@ class ItemStore {
   var allItems = [Item]()
 
   init() {
-    for _ in 0..<7 {
+    for _ in 0..<60 {
       createItem()
     }
   }
