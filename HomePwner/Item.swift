@@ -26,14 +26,19 @@ class Item: NSObject {
   convenience init(random: Bool = false) {
     if random {
       let randomAdjective = Helpers.getRandomValue([
+        "🔥",
+        "🍄",
         "Sick",
         "Tragic",
-        "Doom",
+        "Metal",
+        "Doomulus",
         "Delicious",
-        "Fire 🔥",
+        "Habanero",
         "Goth",
-        "Psychedelic",
+        "Strange",
         "Dank",
+        "Normcore",
+        "Heavy",
       ])!
 
       let randomThingName = Helpers.getRandomValue([
@@ -41,11 +46,14 @@ class Item: NSObject {
         "Microcomputer",
         "Espresso",
         "Album",
+        "Jalapeno",
+        "Hot Sauce",
         "Mango",
+        "La Croix",
+        "Cast Iron",
         "Curry",
         "Whiskey",
         "Kitten",
-        "Mushroom 🍄",
         "Lazer",
         "Doggo",
       ])!
