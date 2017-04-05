@@ -132,6 +132,9 @@
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="c5v-kp-0od" id="bYt-Rf-4MV"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -149,6 +152,9 @@
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="c5v-kp-0od" id="Ngh-lX-QXi"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -166,6 +172,9 @@
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="c5v-kp-0od" id="ATH-Lf-Dha"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -183,12 +192,16 @@
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="BEr-ON-1Ys" secondAttribute="trailing" id="Aho-yM-IPy"/>
                             <constraint firstItem="BEr-ON-1Ys" firstAttribute="top" secondItem="Zpy-JD-hmF" secondAttribute="bottom" constant="15" id="gIs-H7-ag0"/>
                             <constraint firstItem="svj-5f-Phj" firstAttribute="top" secondItem="BEr-ON-1Ys" secondAttribute="bottom" constant="8" id="o69-fS-6EJ"/>
                             <constraint firstItem="BEr-ON-1Ys" firstAttribute="leading" secondItem="5mj-yk-uVi" secondAttribute="leadingMargin" id="xz7-Km-mZg"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="GK9-Sq-c37" appends="YES" id="8BS-Kd-Ntl"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="dateLabel" destination="pVA-Bi-LhS" id="Xeb-gU-2IR"/>
@@ -198,6 +211,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2yG-G1-tIQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="GK9-Sq-c37">
+                    <connections>
+                        <action selector="backgroundTapped:" destination="c5v-kp-0od" id="Av8-rd-QMH"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1836" y="64.31784107946028"/>
         </scene>
