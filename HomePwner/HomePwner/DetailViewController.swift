@@ -10,7 +10,11 @@ import UIKit
 
 class DetailViewController: UIViewController, UITextFieldDelegate {
 
-  var item: Item!
+  var item: Item! {
+    didSet {
+      navigationItem.title = item.name
+    }
+  }
 
   @IBOutlet var nameField: UITextField!
   @IBOutlet var serialNumberField: UITextField!
