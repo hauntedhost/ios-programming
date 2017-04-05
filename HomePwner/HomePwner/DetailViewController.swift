@@ -17,20 +17,32 @@ class DetailViewController: UIViewController {
 
   var item: Item!
 
-  let numberFormatter: NumberFormatter = {
-    let formatter = NumberFormatter()
-    formatter.numberStyle = .decimal
-    formatter.minimumFractionDigits = 2
-    formatter.maximumFractionDigits = 2
-    return formatter
-  }()
+  @IBAction func done(_ sender: Any) {
+    presentingViewController?.dismiss(animated: true, completion: nil)
+  }
 
-  let dateFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .medium
-    formatter.timeStyle = .none
-    return formatter
-  }()
+  func updateItemFromFields() {
+    if let nameText = nameField.text,
+           nameText != item.name {
+      item.name = nameText
+    }
+
+    if let serialNumberText = serialNumberField.text,
+           serialNumberText != item.serialNumber {
+      item.serialNumber = serialNumberText
+    }
+
+    if let valueText = valueField.text,
+       let value = Double(valueText),
+           value != item.valueInDollars {
+      item.valueInDollars = value
+    }
+  }
+
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    updateItemFromFields()
+  }
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
@@ -38,9 +50,9 @@ class DetailViewController: UIViewController {
     nameField.text = item.name
     serialNumberField.text = item.serialNumber
 
-    valueField.text = numberFormatter.string(
+    valueField.text = Helpers.numberFormatter.string(
       from: NSNumber(value: item.valueInDollars)
     )
-    dateLabel.text = dateFormatter.string(from: item.dateCreated)
+    dateLabel.text = Helpers.dateFormatter.string(from: item.dateCreated)
   }
 }

@@ -51,7 +51,9 @@ class ItemsViewController: UITableViewController {
 
     cell.nameLabel.text = item.name
     cell.serialNumberLabel.text = item.serialNumber
-    cell.valueLabel.text = "$\(item.valueInDollars)"
+    cell.valueLabel.text = Helpers.numberFormatter.string(
+      from: NSNumber(value: item.valueInDollars)
+    )
 
     return cell
   }
@@ -117,6 +119,11 @@ class ItemsViewController: UITableViewController {
     default:
       preconditionFailure("Unexpected segue identifier")
     }
+  }
+
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    tableView.reloadData()
   }
 
   override func viewDidLoad() {
