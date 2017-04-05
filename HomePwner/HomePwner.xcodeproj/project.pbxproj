@@ -15,6 +15,7 @@
 		140871941E9468B800846285 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140871931E9468B800846285 /* Item.swift */; };
 		140871961E94717800846285 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140871951E94717800846285 /* Helpers.swift */; };
 		140871981E9475AA00846285 /* ItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140871971E9475AA00846285 /* ItemStore.swift */; };
+		1408719A1E95516200846285 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140871991E95516200846285 /* ItemCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		140871931E9468B800846285 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Item.swift; path = ../Item.swift; sourceTree = "<group>"; };
 		140871951E94717800846285 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Helpers.swift; path = ../Helpers.swift; sourceTree = "<group>"; };
 		140871971E9475AA00846285 /* ItemStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemStore.swift; sourceTree = "<group>"; };
+		140871991E95516200846285 /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 			children = (
 				1408717F1E9467A300846285 /* AppDelegate.swift */,
 				140871931E9468B800846285 /* Item.swift */,
+				140871991E95516200846285 /* ItemCell.swift */,
 				140871971E9475AA00846285 /* ItemStore.swift */,
 				140871911E94681300846285 /* ItemsViewController.swift */,
 				140871951E94717800846285 /* Helpers.swift */,
@@ -148,6 +151,7 @@
 			files = (
 				140871921E94681300846285 /* ItemsViewController.swift in Sources */,
 				140871941E9468B800846285 /* Item.swift in Sources */,
+				1408719A1E95516200846285 /* ItemCell.swift in Sources */,
 				140871801E9467A300846285 /* AppDelegate.swift in Sources */,
 				140871981E9475AA00846285 /* ItemStore.swift in Sources */,
 				140871961E94717800846285 /* Helpers.swift in Sources */,

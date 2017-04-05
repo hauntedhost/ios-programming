@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // create and setup item store
     let itemStore = ItemStore()
     let itemsController = window!.rootViewController as! ItemsViewController
+
     itemsController.itemStore = itemStore
 
     return true
