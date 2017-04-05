@@ -1,5 +1,5 @@
 ### todo:
-- google: implicitly unwrapped optionals? wtf.
+- google: implicitly unwrapped optionals? wtf. #TODO
 
 ## day 1
 
@@ -27,9 +27,9 @@
 - tab bar controller
 - tab bar icons
 - programmatic views redux
-- programmatic constraints, margins,  #FUZZY
+- programmatic constraints, margins, fuzzy #TODO
 - segmented control
-- programmatic controls #FUZZY
+- programmatic controls are fuzzy #TODO
 
 no clue what is happening here:
 ```swift
@@ -47,3 +47,8 @@ segmentedControl.addTarget(
   - ca keyframe animation
   - ca grouped animation
   - https://www.cocoacontrols.com
+
+## day 5
+
+- downcasting understanding is fuzzy #TODO
+- alternatives to downcasting? #TODO
