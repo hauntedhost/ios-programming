@@ -17,10 +17,6 @@ class DetailViewController: UIViewController {
 
   var item: Item!
 
-  @IBAction func done(_ sender: Any) {
-    presentingViewController?.dismiss(animated: true, completion: nil)
-  }
-
   func updateItemFromFields() {
     if let nameText = nameField.text,
            nameText != item.name {
