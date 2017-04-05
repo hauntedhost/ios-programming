@@ -55,7 +55,7 @@ class ItemsViewController: UITableViewController {
     return cell
   }
 
-  // handler for commiting a change
+  // handler for commiting (ie. deleting) a change
   override func tableView(
     _ tableView: UITableView,
     commit editingStyle: UITableViewCellEditingStyle,
@@ -63,8 +63,32 @@ class ItemsViewController: UITableViewController {
   ) {
     if editingStyle == .delete {
       let item = itemStore.allItems[indexPath.row]
-      itemStore.removeItem(item)
-      tableView.deleteRows(at: [indexPath], with: .automatic)
+
+      // delete action confirmation
+      let alertController = UIAlertController(
+        title: "Delete \(item.name)?",
+        message: "Are you sure you want to delete this item?",
+        preferredStyle: .actionSheet
+      )
+
+      let cancelAction = UIAlertAction(
+        title: "Cancel",
+        style: .cancel,
+        handler: nil
+      )
+
+      let deleteAction = UIAlertAction(
+        title: "Delete",
+        style: .destructive,
+        handler: { action -> Void in
+          self.itemStore.removeItem(item)
+          self.tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+      )
+
+      alertController.addAction(cancelAction)
+      alertController.addAction(deleteAction)
+      present(alertController, animated:  true, completion: nil)
     }
   }
 
