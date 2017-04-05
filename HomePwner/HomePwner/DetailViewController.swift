@@ -18,20 +18,14 @@ class DetailViewController: UIViewController {
   var item: Item!
 
   func updateItemFromFields() {
-    if let nameText = nameField.text,
-           nameText != item.name {
-      item.name = nameText
-    }
-
-    if let serialNumberText = serialNumberField.text,
-           serialNumberText != item.serialNumber {
-      item.serialNumber = serialNumberText
-    }
+    item.name = nameField.text ?? ""
+    item.serialNumber = serialNumberField.text
 
     if let valueText = valueField.text,
-       let value = Double(valueText),
-           value != item.valueInDollars {
+       let value = Double(valueText) {
       item.valueInDollars = value
+    } else {
+      item.valueInDollars = 0
     }
   }
 
