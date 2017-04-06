@@ -11,7 +11,12 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+  // MARK: - Properties
+
   var window: UIWindow?
+  let itemStore = ItemStore()
+
+  // MARK: - Lifecycle
 
   func application(
     _ application: UIApplication,
@@ -21,8 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let navController = window!.rootViewController as! UINavigationController
     let itemsController = navController.topViewController as! ItemsViewController
 
-    // create and assign item store
-    let itemStore = ItemStore()
+    // assign item store
     itemsController.itemStore = itemStore
 
     // create and assign image store
@@ -38,8 +42,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
 
   func applicationDidEnterBackground(_ application: UIApplication) {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    if itemStore.saveChanges() {
+      print("[DEBUG] Saved all the items")
+    } else {
+      print("[ERROR] Could not save the items")
+    }
   }
 
   func applicationWillEnterForeground(_ application: UIApplication) {

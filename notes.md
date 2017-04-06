@@ -53,3 +53,4 @@ segmentedControl.addTarget(
 - downcasting understanding is fuzzy #TODO
 - alternatives to downcasting? #TODO
 - url to simulator app folder - how to get #TODO
+- in Item.swift, how to inline a dictionary w/ typedef? #TODO
