@@ -9,6 +9,18 @@
 import Foundation
 
 struct Helpers {
+
+  static func getDocumentsDirectory() -> URL {
+    return FileManager.default.urls(
+      for: .documentDirectory,
+      in: .userDomainMask
+    ).first!
+  }
+
+  static func getDocumentsDirectory(forKey key: String) -> URL {
+    return getDocumentsDirectory().appendingPathComponent(key)
+  }
+
   static func getRandomValue<T>(_ arr: [T]) -> T? {
     guard !arr.isEmpty else {
       return nil

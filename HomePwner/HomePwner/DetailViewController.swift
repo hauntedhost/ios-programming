@@ -85,7 +85,10 @@ class DetailViewController: UIViewController,
       from: NSNumber(value: item.valueInDollars)
     )
     dateLabel.text = Helpers.dateFormatter.string(from: item.dateCreated)
-    imageView.image = imageStore.image(forKey: item.itemKey)
+
+    // TODO: this is expensive in that it tries to find image in cache and disk
+    // maybe an optimization could be to have an item.hasImage boolean?
+    imageView.image = imageStore.getImage(forKey: item.itemKey)
   }
 
   // MARK: - Private

@@ -33,6 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let imageStore = ImageStore()
     itemsController.imageStore = imageStore
 
+    print("doc folder: \(Helpers.getDocumentsDirectory())")
+
     return true
   }
 

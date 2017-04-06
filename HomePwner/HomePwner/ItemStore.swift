@@ -15,11 +15,7 @@ class ItemStore {
   var allItems = [Item]()
 
   let itemArchiveURL: URL = {
-    let documentsDirectories = FileManager.default.urls(
-      for: .documentDirectory,
-      in: .userDomainMask)
-    let documentDirectory = documentsDirectories.first!
-    return documentDirectory.appendingPathComponent("items.archive")
+    return Helpers.getDocumentsDirectory(forKey: "items.archive")
   }()
 
   // MARK: - Initializers
@@ -58,13 +54,14 @@ class ItemStore {
     print("[DEBUG] Saving items to: \(itemArchiveURL)")
     return NSKeyedArchiver.archiveRootObject(
       allItems,
-      toFile: itemArchiveURL.path)
+      toFile: itemArchiveURL.path
+    )
   }
 
   // MARK: - Private
 
-  // TODO: how to use a try? to safely handle crashes with corrupted archives
   private func getArchivedItems() -> [Item]? {
+    // TODO: how to safely handle crashes with corrupted archives
     return NSKeyedUnarchiver.unarchiveObject(
       withFile: itemArchiveURL.path
     ) as? [Item]
