@@ -13,6 +13,8 @@ class DetailViewController: UIViewController,
   UINavigationControllerDelegate,
   UIImagePickerControllerDelegate {
 
+  // MARK: - Properties
+
   var item: Item! {
     didSet {
       navigationItem.title = item.name
@@ -25,6 +27,8 @@ class DetailViewController: UIViewController,
   @IBOutlet var valueField: UITextField!
   @IBOutlet var dateLabel: UILabel!
   @IBOutlet var imageView: UIImageView!
+
+  // MARK: - Actions
 
   @IBAction func backgroundTapped(_ sender: UITapGestureRecognizer) {
     view.endEditing(true)
@@ -41,17 +45,7 @@ class DetailViewController: UIViewController,
     present(imagePicker, animated: true, completion: nil)
   }
 
-  func updateItemFromFields() {
-    item.name = nameField.text ?? ""
-    item.serialNumber = serialNumberField.text
-
-    if let valueText = valueField.text,
-       let value = Double(valueText) {
-      item.valueInDollars = value
-    } else {
-      item.valueInDollars = 0
-    }
-  }
+  // MARK: - Delegates
 
   func imagePickerController(
     _ picker: UIImagePickerController,
@@ -75,10 +69,11 @@ class DetailViewController: UIViewController,
     return true
   }
 
+  // MARK: - View lifecycle
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
     view.endEditing(true)
-    updateItemFromFields()
+    updateItem()
   }
 
   override func viewWillAppear(_ animated: Bool) {
@@ -91,5 +86,19 @@ class DetailViewController: UIViewController,
     )
     dateLabel.text = Helpers.dateFormatter.string(from: item.dateCreated)
     imageView.image = imageStore.image(forKey: item.itemKey)
+  }
+
+  // MARK: - Private
+
+  private func updateItem() {
+    item.name = nameField.text ?? ""
+    item.serialNumber = serialNumberField.text
+
+    if let valueText = valueField.text,
+      let value = Double(valueText) {
+      item.valueInDollars = value
+    } else {
+      item.valueInDollars = 0
+    }
   }
 }
