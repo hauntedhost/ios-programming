@@ -18,6 +18,7 @@ class DetailViewController: UIViewController,
       navigationItem.title = item.name
     }
   }
+  var imageStore: ImageStore!
 
   @IBOutlet var nameField: UITextField!
   @IBOutlet var serialNumberField: UITextField!
@@ -56,8 +57,16 @@ class DetailViewController: UIViewController,
     _ picker: UIImagePickerController,
     didFinishPickingMediaWithInfo info: [String : Any]
   ) {
+    // get picked image from info dictionary
     let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+
+    // store the image in the image store
+    imageStore.setImage(image, forKey: item.itemKey)
+
+    // put the image on the screen in the image view
     imageView.image = image
+
+    // take image picker off the screen
     dismiss(animated: true, completion: nil)
   }
 
@@ -77,10 +86,10 @@ class DetailViewController: UIViewController,
 
     nameField.text = item.name
     serialNumberField.text = item.serialNumber
-
     valueField.text = Helpers.numberFormatter.string(
       from: NSNumber(value: item.valueInDollars)
     )
     dateLabel.text = Helpers.dateFormatter.string(from: item.dateCreated)
+    imageView.image = imageStore.image(forKey: item.itemKey)
   }
 }

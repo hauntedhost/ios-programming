@@ -17,11 +17,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     _ application: UIApplication,
     didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?
   ) -> Bool {
-    // create and setup item store
-    let itemStore = ItemStore()
+    // get itemsController
     let navController = window!.rootViewController as! UINavigationController
     let itemsController = navController.topViewController as! ItemsViewController
+
+    // create and assign item store
+    let itemStore = ItemStore()
     itemsController.itemStore = itemStore
+
+    // create and assign image store
+    let imageStore = ImageStore()
+    itemsController.imageStore = imageStore
 
     return true
   }

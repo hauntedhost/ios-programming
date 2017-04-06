@@ -17,6 +17,7 @@
 		140871981E9475AA00846285 /* ItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140871971E9475AA00846285 /* ItemStore.swift */; };
 		1408719A1E95516200846285 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140871991E95516200846285 /* ItemCell.swift */; };
 		1408719C1E9570F700846285 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1408719B1E9570F700846285 /* DetailViewController.swift */; };
+		142D7A0A1E95C49400FB7186 /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142D7A091E95C49400FB7186 /* ImageStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		140871971E9475AA00846285 /* ItemStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemStore.swift; sourceTree = "<group>"; };
 		140871991E95516200846285 /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		1408719B1E9570F700846285 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		142D7A091E95C49400FB7186 /* ImageStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				140871951E94717800846285 /* Helpers.swift */,
 				140871831E9467A300846285 /* Main.storyboard */,
 				1408719B1E9570F700846285 /* DetailViewController.swift */,
+				142D7A091E95C49400FB7186 /* ImageStore.swift */,
 				140871861E9467A300846285 /* Assets.xcassets */,
 				140871881E9467A300846285 /* LaunchScreen.storyboard */,
 				1408718B1E9467A300846285 /* Info.plist */,
@@ -155,6 +158,7 @@
 				140871921E94681300846285 /* ItemsViewController.swift in Sources */,
 				140871941E9468B800846285 /* Item.swift in Sources */,
 				1408719A1E95516200846285 /* ItemCell.swift in Sources */,
+				142D7A0A1E95C49400FB7186 /* ImageStore.swift in Sources */,
 				140871801E9467A300846285 /* AppDelegate.swift in Sources */,
 				140871981E9475AA00846285 /* ItemStore.swift in Sources */,
 				140871961E94717800846285 /* Helpers.swift in Sources */,
