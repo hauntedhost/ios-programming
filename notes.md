@@ -3,6 +3,7 @@
 ☐ google: implicitly unwrapped optionals? wtf.
 ☐ programmatic constraints, margins, fuzzy
 ☐ programmatic controls are fuzzy
+☐ what is #selector?
 ☐ downcasting understanding is fuzzy
 ☐ alternatives to downcasting?
 ✔ how to get url to simulator app folder?
