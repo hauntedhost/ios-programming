@@ -52,3 +52,4 @@ segmentedControl.addTarget(
 
 - downcasting understanding is fuzzy #TODO
 - alternatives to downcasting? #TODO
+- url to simulator app folder - how to get #TODO
