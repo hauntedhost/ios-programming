@@ -12,44 +12,58 @@ class DrawView: UIView {
 
   // MARK: - Properties
 
-  var currentLine: Line?
+  var currentLines: [NSValue:Line] = [:]
   var finishedLines: [Line] = []
 
-  // MARK: UIView
+  // MARK: UIResponder
 
   override func draw(_ rect: CGRect) {
     UIColor.black.setStroke()
     for line in finishedLines {
       stroke(line)
     }
-    if let line = currentLine {
-      UIColor.red.setStroke()
+
+    UIColor.red.setStroke()
+    for (_, line) in currentLines {
       stroke(line)
     }
   }
 
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-    let touch = touches.first!
-    let location = touch.location(in: self)
-    currentLine = Line(begin: location, end: location)
+    print(#function)
+
+    for touch in touches {
+      let location = touch.location(in: self)
+      let newLine = Line(begin: location, end: location)
+      let key = touchKey(touch)
+      currentLines[key] = newLine
+    }
     setNeedsDisplay()
   }
 
   override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-    let touch = touches.first!
-    let location = touch.location(in: self)
-    currentLine?.end = location
+    print(#function)
+
+    for touch in touches {
+      let key = touchKey(touch)
+      currentLines[key]?.end = touch.location(in: self)
+    }
+
     setNeedsDisplay()
   }
 
   override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-    if var line = currentLine {
-      let touch = touches.first!
-      let location = touch.location(in: self)
-      line.end = location
-      finishedLines.append(line)
+    print(#function)
+
+    for touch in touches {
+      let key = touchKey(touch)
+      if var line = currentLines[key] {
+        line.end = touch.location(in: self)
+        finishedLines.append(line)
+        currentLines.removeValue(forKey: key)
+      }
     }
-    currentLine = nil
+
     setNeedsDisplay()
   }
 
@@ -62,5 +76,9 @@ class DrawView: UIView {
     path.move(to: line.begin)
     path.addLine(to: line.end)
     path.stroke()
+  }
+
+  private func touchKey(_ touch: UITouch) -> NSValue {
+    return NSValue(nonretainedObject: touch)
   }
 }

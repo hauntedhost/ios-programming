@@ -8,6 +8,7 @@
 ✔ how to get url to simulator app folder?
 ☐ in Item.swift, how to inline a dictionary w/ typedef?
 ☐ named tab behaviors
+☐ read docs on NSValue: let lineKey = NSValue(nonretainedObject: touch)
 
 ## day 1
 
@@ -66,3 +67,4 @@ segmentedControl.addTarget(
 ## day 6
 
 - named tab behaviors
+- what is `NSValue(nonretainedObject: touch)`?
