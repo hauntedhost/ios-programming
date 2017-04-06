@@ -30,8 +30,6 @@ class DrawView: UIView {
   }
 
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-    print(#function)
-
     for touch in touches {
       let location = touch.location(in: self)
       let newLine = Line(begin: location, end: location)
@@ -42,19 +40,19 @@ class DrawView: UIView {
   }
 
   override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-    print(#function)
-
     for touch in touches {
       let key = touchKey(touch)
       currentLines[key]?.end = touch.location(in: self)
     }
+    setNeedsDisplay()
+  }
 
+  override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+    currentLines.removeAll()
     setNeedsDisplay()
   }
 
   override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-    print(#function)
-
     for touch in touches {
       let key = touchKey(touch)
       if var line = currentLines[key] {
@@ -63,7 +61,6 @@ class DrawView: UIView {
         currentLines.removeValue(forKey: key)
       }
     }
-
     setNeedsDisplay()
   }
 
