@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct PhotoStore {
+class PhotoStore {
 
   // MARK: - Properties
 
@@ -16,7 +16,7 @@ struct PhotoStore {
 
   // MARK: - Public API
 
-  public mutating func addPhotos(fromJSON photosJSON: [[String:Any]]?) {
+  public func addPhotos(fromJSON photosJSON: [[String:Any]]?) {
     if let photosJSON = photosJSON {
       for json in photosJSON {
         if let photo = Photo(fromJSON: json) {
