@@ -10,6 +10,8 @@
 ☐ in Item.swift, how to inline a dictionary w/ typedef?
 ☐ named tab behaviors
 ☐ read docs on NSValue: let lineKey = NSValue(nonretainedObject: touch)
+✔ define class property closure conflicting with named function
+☐ play with websockets https://www.raywenderlich.com/143874/websockets-ios-starscream
 
 ## day 1
 
@@ -69,3 +71,7 @@ segmentedControl.addTarget(
 
 - named tab behaviors
 - what is `NSValue(nonretainedObject: touch)`?
+
+## day 7
+
+- can i define a struct property that is a closure that conflicts with a function of the same name that takes same arguments?

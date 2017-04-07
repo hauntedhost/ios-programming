@@ -8,6 +8,12 @@
 
 import Foundation
 
+extension Photo: Equatable {
+  static func == (left: Photo, right: Photo) -> Bool {
+    return left.photoID == right.photoID
+  }
+}
+
 struct Photo {
 
   // MARK: - Properties

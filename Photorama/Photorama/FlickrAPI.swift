@@ -28,6 +28,12 @@ struct FlickrAPI {
     task.resume()
   }
 
+  // MARK: - Private
+
+  private static let apiKey = "4b68c56efb9ab2fbfbf41df0f1bd72c9"
+  private static let baseURLString = "https://api.flickr.com/services/rest"
+  private static let photosPerPage = "50"
+
   private static func getPhotos(fromJSON data: Data?) -> [[String:Any]]? {
     guard
       let json = JSON.parse(data),
@@ -40,11 +46,6 @@ struct FlickrAPI {
 
     return photos
   }
-
-  // MARK: - Private
-
-  private static let apiKey = "4b68c56efb9ab2fbfbf41df0f1bd72c9"
-  private static let baseURLString = "https://api.flickr.com/services/rest"
 
   private static func flickrURL(method: APIMethod) -> URL {
     return flickrURL(method: method, params: [:])
@@ -75,8 +76,8 @@ struct FlickrAPI {
     return flickrURL(
       method: .interestingPhotos,
       params: [
-        "extras": "url_h,url_c,date_taken",
-        "per_page": "5",
+        "extras": "url_c,url_h,date_taken",
+        "per_page": photosPerPage,
         ]
     )
   }
