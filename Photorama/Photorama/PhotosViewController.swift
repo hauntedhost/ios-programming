@@ -10,8 +10,19 @@ import UIKit
 
 class PhotosViewController: UIViewController {
 
+  // MARK: - Properties
+
+  var store: PhotoStore!
+
   // MARK: - Outlets
 
   @IBOutlet var imageView: UIImageView!
 
+  // MARK: - Overrides
+
+  override func viewDidLoad() {
+    super.viewDidLoad()
+
+    store.getPhotos()
+  }
 }

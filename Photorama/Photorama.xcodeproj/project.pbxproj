@@ -12,6 +12,10 @@
 		1456C2B11E96C598006F0444 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1456C2B01E96C598006F0444 /* Assets.xcassets */; };
 		1456C2B41E96C598006F0444 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1456C2B21E96C598006F0444 /* LaunchScreen.storyboard */; };
 		1456C2BC1E96C614006F0444 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1456C2BB1E96C614006F0444 /* PhotosViewController.swift */; };
+		1456C2BE1E96DE93006F0444 /* FlickrAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1456C2BD1E96DE93006F0444 /* FlickrAPI.swift */; };
+		1456C2C01E96ECA3006F0444 /* PhotoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1456C2BF1E96ECA3006F0444 /* PhotoStore.swift */; };
+		1456C2C21E970448006F0444 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1456C2C11E970448006F0444 /* Photo.swift */; };
+		1456C2C41E970601006F0444 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1456C2C31E970601006F0444 /* JSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,10 @@
 		1456C2B31E96C598006F0444 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1456C2B51E96C598006F0444 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1456C2BB1E96C614006F0444 /* PhotosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
+		1456C2BD1E96DE93006F0444 /* FlickrAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrAPI.swift; sourceTree = "<group>"; };
+		1456C2BF1E96ECA3006F0444 /* PhotoStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoStore.swift; sourceTree = "<group>"; };
+		1456C2C11E970448006F0444 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		1456C2C31E970601006F0444 /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,10 +64,14 @@
 			children = (
 				1456C2A91E96C598006F0444 /* AppDelegate.swift */,
 				1456C2B01E96C598006F0444 /* Assets.xcassets */,
+				1456C2BD1E96DE93006F0444 /* FlickrAPI.swift */,
 				1456C2B51E96C598006F0444 /* Info.plist */,
 				1456C2B21E96C598006F0444 /* LaunchScreen.storyboard */,
 				1456C2AD1E96C598006F0444 /* Main.storyboard */,
+				1456C2BF1E96ECA3006F0444 /* PhotoStore.swift */,
+				1456C2C31E970601006F0444 /* JSON.swift */,
 				1456C2BB1E96C614006F0444 /* PhotosViewController.swift */,
+				1456C2C11E970448006F0444 /* Photo.swift */,
 			);
 			path = Photorama;
 			sourceTree = "<group>";
@@ -137,8 +149,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1456C2BE1E96DE93006F0444 /* FlickrAPI.swift in Sources */,
 				1456C2BC1E96C614006F0444 /* PhotosViewController.swift in Sources */,
+				1456C2C01E96ECA3006F0444 /* PhotoStore.swift in Sources */,
+				1456C2C41E970601006F0444 /* JSON.swift in Sources */,
 				1456C2AA1E96C598006F0444 /* AppDelegate.swift in Sources */,
+				1456C2C21E970448006F0444 /* Photo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
