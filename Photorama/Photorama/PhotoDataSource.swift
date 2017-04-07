@@ -11,7 +11,7 @@ import UIKit
 class PhotoDataSource: NSObject, UICollectionViewDataSource {
 
   var photos: [Photo] = []
-  let identifier = "UICollectionViewCell"
+  let identifier = "PhotoCollectionViewCell"
 
   // MARK: - UICollectionViewDataSource Protocol
 
@@ -29,7 +29,7 @@ class PhotoDataSource: NSObject, UICollectionViewDataSource {
     let cell = collectionView.dequeueReusableCell(
       withReuseIdentifier: identifier,
       for: indexPath
-    )
+    ) as! PhotoCollectionViewCell
     return cell
   }
 }

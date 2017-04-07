@@ -18,6 +18,7 @@
 		1456C2C41E970601006F0444 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1456C2C31E970601006F0444 /* JSON.swift */; };
 		1456C2C61E974DA0006F0444 /* HTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1456C2C51E974DA0006F0444 /* HTTP.swift */; };
 		1456C2C81E97F7C7006F0444 /* PhotoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1456C2C71E97F7C7006F0444 /* PhotoDataSource.swift */; };
+		1456C2CA1E97FFC6006F0444 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1456C2C91E97FFC6006F0444 /* PhotoCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		1456C2C31E970601006F0444 /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		1456C2C51E974DA0006F0444 /* HTTP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTP.swift; sourceTree = "<group>"; };
 		1456C2C71E97F7C7006F0444 /* PhotoDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDataSource.swift; sourceTree = "<group>"; };
+		1456C2C91E97FFC6006F0444 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				1456C2B21E96C598006F0444 /* LaunchScreen.storyboard */,
 				1456C2AD1E96C598006F0444 /* Main.storyboard */,
 				1456C2C11E970448006F0444 /* Photo.swift */,
+				1456C2C91E97FFC6006F0444 /* PhotoCollectionViewCell.swift */,
 				1456C2C71E97F7C7006F0444 /* PhotoDataSource.swift */,
 				1456C2BF1E96ECA3006F0444 /* PhotoStore.swift */,
 				1456C2BB1E96C614006F0444 /* PhotosViewController.swift */,
@@ -160,6 +163,7 @@
 				1456C2C61E974DA0006F0444 /* HTTP.swift in Sources */,
 				1456C2C01E96ECA3006F0444 /* PhotoStore.swift in Sources */,
 				1456C2C41E970601006F0444 /* JSON.swift in Sources */,
+				1456C2CA1E97FFC6006F0444 /* PhotoCollectionViewCell.swift in Sources */,
 				1456C2C81E97F7C7006F0444 /* PhotoDataSource.swift in Sources */,
 				1456C2AA1E96C598006F0444 /* AppDelegate.swift in Sources */,
 				1456C2C21E970448006F0444 /* Photo.swift in Sources */,
