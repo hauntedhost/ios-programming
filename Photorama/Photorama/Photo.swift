@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Photo {
+struct Photo {
 
   // MARK: - Properties
 
@@ -17,6 +17,12 @@ class Photo {
   let photoID: String
   let dateTaken: Date
 
+  private static let dateFormatter: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+    return formatter
+  }()
+
   // MARK: - Initializers
 
   init(title: String, photoID: String, remoteURL: URL, dateTaken: Date) {
@@ -24,5 +30,25 @@ class Photo {
     self.photoID = photoID
     self.remoteURL = remoteURL
     self.dateTaken = dateTaken
+  }
+
+  init?(fromJSON json: [String:Any]) {
+    guard
+      let title = json["title"] as? String,
+      let photoID = json["id"] as? String,
+      let dateString = json["datetaken"] as? String,
+      let dateTaken = Photo.dateFormatter.date(from: dateString),
+      let photoURLString = json["url_c"] as? String,
+      let remoteURL = URL(string: photoURLString)
+      else {
+        return nil
+    }
+
+    self.init(
+      title: title,
+      photoID: photoID,
+      remoteURL: remoteURL,
+      dateTaken: dateTaken
+    )
   }
 }

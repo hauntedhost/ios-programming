@@ -8,75 +8,21 @@
 
 import UIKit
 
-enum ImageResult {
-  case success(UIImage)
-  case failure(Error)
-}
+struct PhotoStore {
 
-enum PhotoError: Error {
-  case imageCreationError
-}
+  // MARK: - Properties
 
-enum PhotosResult {
-  case success([Photo])
-  case failure(Error?)
-}
+  var allPhotos: [Photo] = []
 
-class PhotoStore {
+  // MARK: - Public API
 
-  private let session: URLSession = {
-    return URLSession(
-      configuration: URLSessionConfiguration.default
-    )
-  }()
-
-  public func fetchInterestingPhotos(
-    completion: @escaping (PhotosResult) -> Void
-  ) {
-    let url = FlickrAPI.interestingPhotosURL
-    let request = URLRequest(url: url)
-    let task = session.dataTask(with: request) { (data, resp, err) -> Void in
-      let result = self.processPhotosRequest(data: data, error: err)
-      OperationQueue.main.addOperation {
-        completion(result)
+  public mutating func addPhotos(fromJSON photosJSON: [[String:Any]]?) {
+    if let photosJSON = photosJSON {
+      for json in photosJSON {
+        if let photo = Photo(fromJSON: json) {
+          allPhotos.append(photo)
+        }
       }
     }
-    task.resume()
-  }
-
-  public func fetchImage(
-    for photo: Photo,
-    completion: @escaping (ImageResult) -> Void
-  ) {
-    let photoURL = photo.remoteURL
-    let request = URLRequest(url: photoURL)
-    let task = session.dataTask(with: request) { (data, resp, err) -> Void in
-      let result = self.processImageRequest(data: data, error: err)
-      OperationQueue.main.addOperation {
-        completion(result)
-      }
-    }
-    task.resume()
-  }
-
-  private func processImageRequest(data: Data?, error: Error?) -> ImageResult {
-    guard
-      let imageData = data,
-      let image = UIImage(data: imageData)
-    else {
-      if data == nil {
-        return .failure(error!)
-      } else {
-        return .failure(PhotoError.imageCreationError)
-      }
-    }
-    return .success(image)
-  }
-
-  private func processPhotosRequest(data: Data?, error: Error?) -> PhotosResult {
-    guard let jsonData = data else {
-      return .failure(error!)
-    }
-    return FlickrAPI.photos(fromJSON: jsonData)
   }
 }
