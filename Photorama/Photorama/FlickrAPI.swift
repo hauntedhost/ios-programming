@@ -8,26 +8,73 @@
 
 import Foundation
 
+enum FlickrError: Error {
+  case invalidJSONData
+}
+
+enum Method: String {
+  case interestingPhotos = "flickr.interestingness.getList"
+}
+
 struct FlickrAPI {
-
-//  enum Result {
-//    case success([Photo])
-//    case failure(Error)
-//  }
-
-  enum Method: String {
-    case interestingPhotos = "flickr.interestingness.getList"
-  }
 
   // MARK: - Public API
 
-  public static func fetchInterestingPhotos(completion: @escaping (Data?) -> Void) {
-    let url = FlickrAPI.interestingPhotosURL
-    let request = URLRequest(url: url)
-    let task = session.dataTask(with: request) { (data, resp, err) -> Void in
-      completion(data)
+  static var interestingPhotosURL: URL {
+    return flickrURL(
+      method: .interestingPhotos,
+      params: [
+        "extras": "url_h,url_c,date_taken",
+        "per_page": "10",
+      ]
+    )
+  }
+
+  static func photos(fromJSON data: Data) -> PhotosResult {
+    if let json = JSON.parse(data) {
+      guard
+        let jsonHash = json as? [AnyHashable:Any],
+        let photos = jsonHash["photos"] as? [String:Any],
+        let photosArray = photos["photo"] as? [[String:Any]]
+      else {
+        return .failure(FlickrError.invalidJSONData)
+      }
+
+      var finalPhotos: [Photo] = []
+      for photoJSON in photosArray {
+        if let photo = photo(fromJSON: photoJSON) {
+          finalPhotos.append(photo)
+        }
+      }
+
+      if finalPhotos.isEmpty && !photosArray.isEmpty {
+        return .failure(FlickrError.invalidJSONData)
+      }
+
+      return .success(finalPhotos)
+    } else {
+      return .failure(nil)
     }
-    task.resume()
+  }
+
+  static func photo(fromJSON json: [String:Any]) -> Photo? {
+    guard
+      let title = json["title"] as? String,
+      let photoID = json["id"] as? String,
+      let dateString = json["datetaken"] as? String,
+      let dateTaken = dateFormatter.date(from: dateString),
+      let photoURLString = json["url_c"] as? String,
+      let remoteURL = URL(string: photoURLString)
+    else {
+      return nil
+    }
+
+    return Photo(
+      title: title,
+      photoID: photoID,
+      remoteURL: remoteURL,
+      dateTaken: dateTaken
+    )
   }
 
   // MARK: - Private
@@ -35,21 +82,11 @@ struct FlickrAPI {
   private static let apiKey = "4b68c56efb9ab2fbfbf41df0f1bd72c9"
   private static let baseURLString = "https://api.flickr.com/services/rest"
 
-  private static let session: URLSession = {
-    return URLSession(
-      configuration: URLSessionConfiguration.default
-    )
+  private static let dateFormatter: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+    return formatter
   }()
-
-  private static var interestingPhotosURL: URL {
-    return flickrURL(
-      method: .interestingPhotos,
-      params: [
-        "extras": "url_h,url_c,date_taken",
-        "per_page": "10",
-        ]
-    )
-  }
 
   private static func flickrURL(method: Method) -> URL {
     return flickrURL(method: method, params: [:])

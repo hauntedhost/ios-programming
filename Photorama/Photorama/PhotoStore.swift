@@ -8,25 +8,35 @@
 
 import Foundation
 
+enum PhotosResult {
+  case success([Photo])
+  case failure(Error?)
+}
+
 class PhotoStore {
 
-  var allPhotos: [Photo] = []
+  private let session: URLSession = {
+    return URLSession(
+      configuration: URLSessionConfiguration.default
+    )
+  }()
 
-  func photos(fromJSON data: Data) -> [Any]? {
-    do {
-      
-    } catch {
-      return nil
+  public func fetchInterestingPhotos(
+    completion: @escaping (PhotosResult) -> Void
+  ) {
+    let url = FlickrAPI.interestingPhotosURL
+    let request = URLRequest(url: url)
+    let task = session.dataTask(with: request) { (data, resp, err) -> Void in
+      let result = self.processPhotosRequest(data: data, error: err)
+      completion(result)
     }
+    task.resume()
   }
 
-  func getPhotos() {
-    FlickrAPI.fetchInterestingPhotos { (data: Data?) in
-      if let json = JSON.parse(data) {
-        print(json)
-      } else {
-        print("nope")
-      }
+  private func processPhotosRequest(data: Data?, error: Error?) -> PhotosResult {
+    guard let jsonData = data else {
+      return .failure(error!)
     }
+    return FlickrAPI.photos(fromJSON: jsonData)
   }
 }
