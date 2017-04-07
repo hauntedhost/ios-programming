@@ -25,7 +25,7 @@ struct FlickrAPI {
       method: .interestingPhotos,
       params: [
         "extras": "url_h,url_c,date_taken",
-        "per_page": "10",
+        "per_page": "5",
       ]
     )
   }

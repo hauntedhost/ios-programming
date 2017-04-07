@@ -37,7 +37,9 @@ class PhotoStore {
     let request = URLRequest(url: url)
     let task = session.dataTask(with: request) { (data, resp, err) -> Void in
       let result = self.processPhotosRequest(data: data, error: err)
-      completion(result)
+      OperationQueue.main.addOperation {
+        completion(result)
+      }
     }
     task.resume()
   }
@@ -50,7 +52,9 @@ class PhotoStore {
     let request = URLRequest(url: photoURL)
     let task = session.dataTask(with: request) { (data, resp, err) -> Void in
       let result = self.processImageRequest(data: data, error: err)
-      completion(result)
+      OperationQueue.main.addOperation {
+        completion(result)
+      }
     }
     task.resume()
   }
