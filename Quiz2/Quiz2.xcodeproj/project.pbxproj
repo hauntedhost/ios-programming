@@ -57,12 +57,12 @@
 			isa = PBXGroup;
 			children = (
 				142E5D181E92E40600422910 /* AppDelegate.swift */,
-				142E5D1A1E92E40600422910 /* ViewController.swift */,
-				142E5D2A1E92E6D100422910 /* Question.swift */,
-				142E5D1C1E92E40600422910 /* Main.storyboard */,
 				142E5D1F1E92E40600422910 /* Assets.xcassets */,
-				142E5D211E92E40600422910 /* LaunchScreen.storyboard */,
 				142E5D241E92E40600422910 /* Info.plist */,
+				142E5D211E92E40600422910 /* LaunchScreen.storyboard */,
+				142E5D1C1E92E40600422910 /* Main.storyboard */,
+				142E5D2A1E92E6D100422910 /* Question.swift */,
+				142E5D1A1E92E40600422910 /* ViewController.swift */,
 			);
 			path = Quiz2;
 			sourceTree = "<group>";

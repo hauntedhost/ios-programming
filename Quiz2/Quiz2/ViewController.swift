@@ -34,8 +34,8 @@ class ViewController: UIViewController {
 
   @IBAction func showAnswer(_ sender: UIButton) {
     UIView.animate(
-      delay: 0,
       withDuration: 0.05,
+      delay: 0,
       animations: {
         self.answerLabel.alpha = 0
       },
@@ -44,8 +44,8 @@ class ViewController: UIViewController {
         self.answerLabel.text =
           self.questions[self.currentQuestionIndex].answer
         UIView.animate(
-          delay: 0,
           withDuration: 0.25,
+          delay: 0,
           animations: { self.answerLabel.alpha = 1 }
         )
       }
@@ -72,8 +72,8 @@ class ViewController: UIViewController {
   func showCurrentQuestion() {
     answerLabel.text = blankAnswerText
     UIView.animate(
-      delay: 0,
       withDuration: 0.05,
+      delay: 0,
       animations: {
         self.questionLabel.alpha = 0
       },
@@ -82,8 +82,8 @@ class ViewController: UIViewController {
         self.questionLabel.text =
           self.questions[self.currentQuestionIndex].text
         UIView.animate(
-          delay: 0,
           withDuration: 0.25,
+          delay: 0,
           animations: { self.questionLabel.alpha = 1 }
         )
       }
