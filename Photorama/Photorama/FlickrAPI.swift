@@ -30,7 +30,10 @@ struct FlickrAPI {
 
   // MARK: - Private
 
-  private static let apiKey = "4b68c56efb9ab2fbfbf41df0f1bd72c9"
+  private static var apiKey: String {
+    return ProcessInfo.processInfo.environment["FLICKR_API_KEY"]!
+  }
+
   private static let baseURLString = "https://api.flickr.com/services/rest"
   private static let photosPerPage = "50"
 
